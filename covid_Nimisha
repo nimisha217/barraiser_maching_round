@@ -1,0 +1,73 @@
+
+const mysql = require('mysql')
+
+const express = require('express')
+
+const app = express();
+const appGet = express()
+
+//create DB
+
+app.post("/createuser/:id", (req, res)=>{
+
+    var user = {
+        "userId" : req.,
+        "name" : req.params.Name,
+        "phn" : req.params.Phone,
+        "pin" : req.params.Pin
+    }
+
+    
+    res.send("user created =>",user.userId, user.name);
+    
+});
+
+app.post("/selfAssessment",(req,res) => {
+
+
+
+    var assessment= {
+
+        "assessmentId" : assessmentId,
+        "userId" : req.body.id,
+        "symptoms" : req.body.symptom,
+        "travelhistory" : req.body.history,
+        "contact_covid" : req.body.contact
+    
+    }
+
+    res.send("Assessmnet taken for ", assessment.userId);
+})
+
+app.post("/registerAdmin",(req,res) => {
+
+
+
+    var assessment= {
+
+        "adminId" : adminId,
+        "userId" : req.body.id,
+        "name" : req.body.Name,
+        "phn" : req.body.Phone,
+        "pin" : req.body.Pin
+    
+    }
+
+    res.send("Assessmnet taken for ", assessment.userId);
+})
+
+
+app.get('/getUser', ()=>{
+
+    res.send("User created");
+})
+
+appGet.listen('3002', ()=>{
+    console.log("server running -==========")
+})
+
+app.listen('3001', ()=>{
+
+    console.log("server started on port");
+})
+
